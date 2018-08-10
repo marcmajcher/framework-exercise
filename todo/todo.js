@@ -72,7 +72,7 @@ const app = new Vue({
     // methods that implement data logic.
     // note there's no DOM manipulation here at all.
     methods: {
-        addTodo: () => {
+        addTodo: function addTodo() {
             const value = this.newTodo && this.newTodo.trim();
             if (!value) {
                 return;
@@ -132,8 +132,7 @@ function onHashChange() {
     const visibility = window.location.hash.replace(/#\/?/, '');
     if (filters[visibility]) {
         app.visibility = visibility;
-    }
-    else {
+    } else {
         window.location.hash = '';
         app.visibility = 'all';
     }
