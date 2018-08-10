@@ -4,7 +4,7 @@ import './App.css';
 
 let hello = <p>Message Board</p>;
 
-console.log(hello.props.children);
+
 
 
 class App extends Component {
