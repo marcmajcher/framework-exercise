@@ -17,7 +17,15 @@ This exercise will be considered successful when it:
 
 Feel free to style / theme / rename the app to make it something you might put on your portfolio.
 
-**Users can create a post**
+**Viewing Posts**
+
+- Users see the number of comments correctly pluralized
+  - i.e. "0 comments" or "1 comment"
+- Users see posts dynamically reorder according to number of votes
+- Users see the post's date/time displayed nicely
+  - i.e. "Yesterday at 3:09pm", "4 minute ago", etc.
+
+**Creating Posts**
 
 - Users can toggle the "New Post" form
 - Users can create posts
@@ -26,15 +34,7 @@ Feel free to style / theme / rename the app to make it something you might put o
   - Fields should only appear invalid once they've tabbed off
 - Users cannot click "Create Post" until the form is valid
 
-**Users can view posts**
-
-- Users see the number of comments correctly pluralized
-  - i.e. "0 comments" or "1 comment"
-- Users see posts dynamically reorder according to number of votes
-- Users see the post's date/time displayed nicely
-  - i.e. "Yesterday at 3:09pm", "4 minute ago", etc.
-
-**Votes**
+**Voting**
 
 - Users can upvote
 - Users can downvote
