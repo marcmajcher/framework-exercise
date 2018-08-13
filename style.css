@@ -1,0 +1,26 @@
+.mb-post {
+    list-style-type: none;
+    background-color: #ccc;
+    border: 1px solid black;
+    padding: 2em;
+}
+
+.mb-post-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.mb-post-info {
+    font-style: italic;
+}
+
+.mb-post-body {
+    font-size: 1em;
+}
+
+.mb-post-thumb {
+    max-width: 200px;
+    float: left;
+    margin-right: 1em;
+    max-height: 200px;
+}
