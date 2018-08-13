@@ -1,7 +1,7 @@
 //!This is used with keywords 'imrc'
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-//!This can be whiped up using keywords 'cc'
+//!This can be whipped up using keywords 'cc'
 class Counter extends Component {
   state = {
     count: 0
@@ -13,9 +13,12 @@ class Counter extends Component {
   //   };
 
   render() {
+    let classes = 'badge m-2 badge-';
+    classes += this.state.count === 0 ? 'warning' : 'primary';
+
     return (
       <div>
-        <span style={{ fontSize: 10 }} className="badge badge-primary m-2">
+        <span style={{ fontSize: 20 }} className={classes}>
           {this.formatCount()}
         </span>
         <button className="btn btn-secondary">Increment</button>
@@ -27,7 +30,7 @@ class Counter extends Component {
     let { count } = this.state;
 
     if (count === 0) {
-      return "Zero";
+      return 'Zero';
     } else {
       return count;
     }
@@ -35,7 +38,7 @@ class Counter extends Component {
 }
 
 console.log(
-  "hello hoss!!!!!!!!!!!!, this is coming from the counter.jsx file."
+  'hello hoss!!!!!!!!!!!!, this is coming from the counter.jsx file.'
 );
 
 export default Counter;
