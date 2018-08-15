@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import cosmos from './cosmos.jpg';
 import './App.css';
+import Form from './Form';
 
 
-let sampleText = `This is the sample text, just testing out how to use React on a very simple level and I\'m not trying to get complex in the slightest at all, zero, NIP!`;
+let sampleText = `This is the sample text, just testing out how to use React on a very simple level and Im not trying to get complex in the slightest at all, zero, NIP!`;
 
 let title = `Cosmos gazing`;
 let author = `Vid Trent`;
@@ -11,6 +12,8 @@ let imageSource = cosmos;
 let imageAlt = `Visuals of the cosmos`;
 let appTitle = 'Reddit Look-alike Thingy';
 
+
+//functions
 function Image(props) {
     return (
         <img className="img-fluid rounded p-3" src={props.imageSource} alt={props.imageAlt} />
@@ -46,10 +49,10 @@ function Sample(props) {
     );
 }
 
+//
 
 
-
-
+//class components
 class Post extends Component {
 
     constructor(props) {
@@ -58,7 +61,8 @@ class Post extends Component {
             numberOfComments: 0,
             numberOfDays: 0,
             date: Date(),
-            isHidden: true
+            isHidden: true,
+            userName: ''
         }
     }
 
@@ -97,10 +101,11 @@ class App extends Component {
     render() { 
         
         return (
-          <div>
+          <div className="App">
             <nav className="navbar navbar-light bg-light border-bottom">
               <span className="navbar-brand mb-0 h1 name">{appTitle}</span>
             </nav>
+              <Form />
               <div className="container-fluid">
                 <div className="row d-flex justify-content-center">
                   <div className="col-11">
