@@ -9,5 +9,7 @@ import Counter from './components/counter';
 
 
 
-ReactDOM.render( < Counter / > , document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// ReactDOM.render( < Counter / > , document.getElementById('root'));
 registerServiceWorker();
