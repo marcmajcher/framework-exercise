@@ -2,54 +2,20 @@ import React, { Component } from 'react';
 import cosmos from './cosmos.jpg';
 import './App.css';
 import Form from './Form';
+import data from './data';
+
+console.log(data);
+
 
 
 let sampleText = `This is the sample text, just testing out how to use React on a very simple level and Im not trying to get complex in the slightest at all, zero, NIP!`;
 
-let title = `Cosmos gazing`;
-let author = `Vid Trent`;
+// let title = `Cosmos gazing`;
+// let author = `Vid Trent`;
 let imageSource = cosmos;
 let imageAlt = `Visuals of the cosmos`;
 let appTitle = 'Reddit Look-alike Thingy';
 
-
-//functions
-function Image(props) {
-    return (
-        <img className="img-fluid rounded p-3" src={props.imageSource} alt={props.imageAlt} />
-    );
-}
-
-function Author(props) {
-    return (
-         <span>{props.author}</span>
-       
-    );
-}
-
-function Title(props) {
-    return (
-       <header className="font-weight-bold">
-         <span>{props.title}</span>
-       </header>
-    );
-}
-
-function Comment(props) {
-    return (
-        <div className="col-12">
-          <p>{props.comment}</p>
-        </div>
-    );
-}
-
-function Sample(props) {
-    return (
-        <p>{props.sampleText}</p>
-    );
-}
-
-//
 
 
 //class components
@@ -63,40 +29,52 @@ class Post extends Component {
             date: Date(),
             isHidden: true,
             userName: ''
-        }
+            
+        };
     }
-
-    
-    
-
     render() {
+        
         let days = this.state.numberOfDays;
         let comments = this.state.numberOfComments;
         let postedDate = this.state.date.slice(0, 15)
 
+       
+        for(let i = 0; i < data.length; i++) {
+            let userData = data[i];
+            let title = userData.title;
+            let body = userData.body;
+            let author = userData.author;
+            let image = userData.image;
+
         return (
+
             <div className="row mt-5 bg-light border rounded">
                <div className="col-xs-12 col-sm-4 col-lg-3">
-                 <Image imageSource={imageSource} imagealt={imageAlt} />
+                 <img className="img-fluid rounded p-3" src={image} imageAlt={imageAlt} />
                </div>
                <div className="col-xs-12 col-sm-6 col-lg-7 p-3">
-                 <title title={title}/>
-                 <Sample sampleText={sampleText} />
-                 <span>{postedDate} | {comments} comments</span>
-                 <Comment comment="This is a comment, stupid!" />
-               </div>
-               <div className="col-xs-12 col-sm-2 p-3 text-right">
-               <Author author={author}/>
-               </div>
+                 <header className="m-2">
+                    <span>{title}</span>
+                 </header>
+                <div className="col-12">
+                   <p>{body}</p>
+                </div>
+                <span>{postedDate} | {comments} comments</span>
+                </div>
+                <div className="col-xs-12 col-sm-2 p-3 text-right">
+                  <span>{author}</span>
+                </div>
             </div>
         );
-    }
-    
+    } //this is the end bracket to the loop... experimenting with this.
+  }
 }
 
-
-
 class App extends Component {
+
+    onSubmit = (fields) => {
+        console.log(`App component got: ` , fields);
+    };
     
     render() { 
         
@@ -105,7 +83,7 @@ class App extends Component {
             <nav className="navbar navbar-light bg-light border-bottom">
               <span className="navbar-brand mb-0 h1 name">{appTitle}</span>
             </nav>
-              <Form />
+              <Form onSubmit={fields => this.onSubmit(fields)} />
               <div className="container-fluid">
                 <div className="row d-flex justify-content-center">
                   <div className="col-11">
