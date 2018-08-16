@@ -18,8 +18,15 @@ class Form extends React.Component {
 
      onSubmit = (event) => {
          event.preventDefault();
-         this.props.onSubmit();
-         console.log('onSubmit: this.state:', this.state);
+         let newPost = {};
+         newPost.author = this.state.author;
+         newPost.title = this.state.postTitle;
+         newPost.body = this.state.body;
+         newPost.image = this.state.imageUrl;
+         newPost.comments = [];
+         newPost.votes = 0;
+         newPost.date = "";
+         this.props.addPost(newPost);
      }
      
 

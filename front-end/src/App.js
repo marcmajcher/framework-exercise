@@ -1,68 +1,61 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from './Form';
-import data from './data';
-import NewPost from './NewPost';
+import postsData from './data';
+import Filter from './components/Filter';
+import NewPostButton from './components/NewPostButton';
+import PostList from './components/PostList';
 
-console.log(data);
+console.log(postsData);
 
 let appTitle = 'Reddit Copy Cat';
 
-
-
 //class components
-class Post extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            numberOfComments: 0,
-            numberOfDays: 0,
-            date: Date(),
-            isHidden: true,
-            userName: ''
-            
-        };
-    }
-    render() {
-        
-        let days = this.state.numberOfDays;
-        let comments = this.state.numberOfComments;
-        let postedDate = this.state.date.slice(0, 15)
-
-        
-        for(let i = 0; i < data.length; i++) {
-            let userData = data[i];
-            let title = userData.title;
-            let body = userData.body;
-            let author = userData.author;
-            let image = userData.image;
-
-            return (
-
-            <div className="row mt-5 bg-light border rounded">
-               <div className="col-xs-12 col-sm-4 col-lg-3">
-                 <img className="img-fluid rounded p-3" src={image} />
-               </div>
-               <div className="col-xs-12 col-sm-6 col-lg-7 p-3">
-                 <header className="m-2">
-                    <span className="bolder">{title} | ^ </span>
-                 </header>
-                <div className="col-12">
-                   <p>{body}</p>
-                </div>
-                <span className="m-2 bolder">{postedDate} | {comments} comments</span>
-                </div>
-                <div className="col-xs-12 col-sm-2 p-3 text-right">
-                  <span className="bolder">{author}</span>
-                </div>
-            </div>
-        );
-    } //this is the end bracket to the loop... experimenting with this.
-  }
-}
 
 class App extends Component {
+
+    constructor(props) {
+        super(props)
+        // Set initial state for our App.
+        this.state = {
+            currentSearchTerm: '',
+            currentSortOption: 'title',
+            showPostForm: false,
+            posts: postsData
+        }
+        this.updateCurrentSearchTerm = this.updateCurrentSearchTerm.bind(this);
+        this.updateCurrentSortOption = this.updateCurrentSortOption.bind(this);
+        this.toggleShowPostForm = this.toggleShowPostForm.bind(this);
+        this.updatePostsArray = this.updatePostsArray.bind(this);
+    }
+
+    // method to tell children components how to update currentSearchTerm.
+    updateCurrentSearchTerm(newSearchTerm) {
+        this.setState({
+            currentSearchTerm: newSearchTerm
+        });
+        console.log('Current Search Term', newSearchTerm);
+    }
+
+    // method to tell children components how to update currentSortOption.
+    updateCurrentSortOption(sortOption) {
+        this.setState({
+            currentSortOption: sortOption
+        });
+    }
+
+    updatePostsArray(postObj) {
+        this.setState({
+            posts: this.state.posts.concat([postObj])
+        })
+    }
+
+    toggleShowPostForm() {
+        this.setState({
+            showPostForm: !this.state.showPostForm
+        });
+        console.log('toggling');
+    }
 
     onSubmit = (fields) => {
         console.log(`App component got: ` , fields);
@@ -75,15 +68,16 @@ class App extends Component {
             <nav className="navbar navbar-light bg-light border-bottom">
               <span className="navbar-brand mb-0 h1 name bolder">{appTitle}</span>
             </nav>
-                <NewPost />
-              <Form onSubmit={fields => this.onSubmit(fields)} />
-              <div className="container-fluid">
-                <div className="row d-flex justify-content-center">
-                  <div className="col-11">
-                  <Post />
-                </div>
-              </div>
-            </div>
+            <section className="flexContainer">
+                <Filter updateSearchTerm={searchTerm => this.updateCurrentSearchTerm(searchTerm)} updateSortOption={sortOption => this.updateCurrentSortOption(sortOption)}/>
+                <NewPostButton toggle={() => this.toggleShowPostForm()} />
+            </section>
+            
+            {this.state.currentSearchTerm}
+            <hr />
+            {this.state.currentSortOption}
+            {this.state.showPostForm && <Form addPost={newPost => this.updatePostsArray(newPost)} />}
+            <PostList posts={this.state.posts} />
           </div>
         );
     }
