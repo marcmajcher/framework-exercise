@@ -1,25 +1,44 @@
 /*Although the name of this page is form, I'll be using it to style most of my css */
 
+/* Had to override bootstrap settings for the length of the inputs */
 form {
-    margin-top: 50px; 
+    margin-top: 50px;
     width: 600px;
     margin-left: 60px;
-  }
+}
 
-  .right {
-    margin-left: 700px;
-  }
+/* New Post Button - top right */
 
-  .filter {
-      width: 200px !important;
-       /* margin-top: 46px; */
-     
-  }
-  
+.right {
+    margin-right: 53px;
+    height: 50px;
+}
 
-  .flex-container {
-      display: flex;
-      flex-direction: row;
-      margin-left: 60px;
-      margin-top: 30px;
-  }
+/*Had to override the bootstrap settings  */
+.filter {
+    width: 200px !important;
+    /* margin-top: 46px; */
+}
+
+/* holds the filter input and the New Post button */
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+#filter-btn {
+    text-decoration: none;
+    border: none;
+}
+
+#filter-btn:hover,
+button:focus {
+    background-color: #ffffff;
+    color: #6b757d;
+    border: none;
+    text-decoration: none;
+}
+

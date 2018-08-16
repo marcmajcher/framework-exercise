@@ -8,7 +8,7 @@ let userData = data;
 class Form extends React.Component {
     
     state = { 
-        postTitle: 'Sample Title',
+        postTitle: 'Sample post for title',
         body: 'This is the sample body of the post',
         author: 'David Miller is the author',
         imageUrl: 'https://picsum.photos/200'
@@ -19,7 +19,7 @@ class Form extends React.Component {
      onSubmit = (event) => {
          event.preventDefault();
          this.props.onSubmit();
-         console.log(this.state);
+         console.log('onSubmit: this.state:', this.state);
      }
      
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import cosmos from './cosmos.jpg';
 import './App.css';
 import Form from './Form';
 import data from './data';
@@ -7,7 +6,7 @@ import NewPost from './NewPost';
 
 console.log(data);
 
-let appTitle = 'Reddit Copy Cat.';
+let appTitle = 'Reddit Copy Cat';
 
 
 
@@ -31,7 +30,7 @@ class Post extends Component {
         let comments = this.state.numberOfComments;
         let postedDate = this.state.date.slice(0, 15)
 
-       
+        
         for(let i = 0; i < data.length; i++) {
             let userData = data[i];
             let title = userData.title;
@@ -39,7 +38,7 @@ class Post extends Component {
             let author = userData.author;
             let image = userData.image;
 
-        return (
+            return (
 
             <div className="row mt-5 bg-light border rounded">
                <div className="col-xs-12 col-sm-4 col-lg-3">
