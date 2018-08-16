@@ -4,20 +4,21 @@
 form {
     margin-top: 50px;
     width: 600px;
-    margin-left: 60px;
+    margin-left: 117px;
 }
 
 /* New Post Button - top right */
 
 .right {
-    margin-right: 53px;
+    margin-top: 23px;
+    margin-left: 729px;
     height: 50px;
 }
 
 /*Had to override the bootstrap settings  */
 .filter {
     width: 200px !important;
-    /* margin-top: 46px; */
+
 }
 
 /* holds the filter input and the New Post button */
@@ -42,3 +43,10 @@ button:focus {
     text-decoration: none;
 }
 
+.flexContainer {
+    display: flex;
+    margin-left: 60px;
+    margin-top: 30px;
+  };
+
+  

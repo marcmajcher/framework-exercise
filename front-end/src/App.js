@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './form.css';
 import Form from './Form';
 import postsData from './data';
 import Filter from './components/Filter';
@@ -54,7 +55,7 @@ class App extends Component {
         this.setState({
             showPostForm: !this.state.showPostForm
         });
-        console.log('toggling');
+        console.log('toggling biatch!');
     }
 
     onSubmit = (fields) => {
@@ -73,9 +74,10 @@ class App extends Component {
                 <NewPostButton toggle={() => this.toggleShowPostForm()} />
             </section>
             
-            {this.state.currentSearchTerm}
+            {/* {this.state.currentSearchTerm}
             <hr />
-            {this.state.currentSortOption}
+            {this.state.currentSortOption} */}
+
             {this.state.showPostForm && <Form addPost={newPost => this.updatePostsArray(newPost)} />}
             <PostList posts={this.state.posts} />
           </div>

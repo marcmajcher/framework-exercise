@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-.flexContainer {
-  display: flex;
+.mt-5 {
+  width: 1128px;
+  margin-left: 119px !important;
 }
