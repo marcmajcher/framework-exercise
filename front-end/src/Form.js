@@ -25,7 +25,7 @@ class Form extends React.Component {
 
     render() { 
         return (  
-
+        
         <form>
           <div className="form-group">
             <label htmlFor="title">Title</label>
@@ -33,7 +33,7 @@ class Form extends React.Component {
          </div>
         <div className="form-group">
            <label htmlFor="body">Body</label>
-           <input type="text" className="form-control"  placeholder="Body" value={this.state.value} onChange={event => this.setState({body: event.target.value})}/>
+           <textarea className="form-control"  placeholder="Body" value={this.state.value} onChange={event => this.setState({body: event.target.value})}/>
           </div>
           <div className="form-group">
             <label htmlFor="Author">Author</label>

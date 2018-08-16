@@ -3,18 +3,11 @@ import cosmos from './cosmos.jpg';
 import './App.css';
 import Form from './Form';
 import data from './data';
+import NewPost from './NewPost';
 
 console.log(data);
 
-
-
-let sampleText = `This is the sample text, just testing out how to use React on a very simple level and Im not trying to get complex in the slightest at all, zero, NIP!`;
-
-// let title = `Cosmos gazing`;
-// let author = `Vid Trent`;
-let imageSource = cosmos;
-let imageAlt = `Visuals of the cosmos`;
-let appTitle = 'Reddit Look-alike Thingy';
+let appTitle = 'Reddit Copy Cat.';
 
 
 
@@ -50,16 +43,16 @@ class Post extends Component {
 
             <div className="row mt-5 bg-light border rounded">
                <div className="col-xs-12 col-sm-4 col-lg-3">
-                 <img className="img-fluid rounded p-3" src={image} imageAlt={imageAlt} />
+                 <img className="img-fluid rounded p-3" src={image} />
                </div>
                <div className="col-xs-12 col-sm-6 col-lg-7 p-3">
                  <header className="m-2">
-                    <span>{title}</span>
+                    <span>{title} | ^ </span>
                  </header>
                 <div className="col-12">
                    <p>{body}</p>
                 </div>
-                <span>{postedDate} | {comments} comments</span>
+                <span className="m-2">{postedDate} | {comments} comments</span>
                 </div>
                 <div className="col-xs-12 col-sm-2 p-3 text-right">
                   <span>{author}</span>
@@ -83,6 +76,7 @@ class App extends Component {
             <nav className="navbar navbar-light bg-light border-bottom">
               <span className="navbar-brand mb-0 h1 name">{appTitle}</span>
             </nav>
+                <NewPost />
               <Form onSubmit={fields => this.onSubmit(fields)} />
               <div className="container-fluid">
                 <div className="row d-flex justify-content-center">

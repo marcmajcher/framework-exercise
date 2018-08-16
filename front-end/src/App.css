@@ -3,15 +3,12 @@ span {
 }
 
 .h1 {
-  margin-left: 40% !important;
   color: red !important;
+  margin-left: 30px;
 }
-
-form {
-  margin-right: 300px;
-  margin-left: 20px;
-}
-
-row {
+/* row {
   width: 100% !important;
-}
+} */
+
+
+
