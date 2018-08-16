@@ -2,12 +2,24 @@
 
 form {
     margin-top: 50px; 
-    width: 400px;
+    width: 600px;
     margin-left: 60px;
   }
 
   .right {
-   float: right;
-   margin-top: 30px;
-   margin-right: 58px;
+    margin-left: 700px;
+  }
+
+  .filter {
+      width: 200px !important;
+       /* margin-top: 46px; */
+     
+  }
+  
+
+  .flex-container {
+      display: flex;
+      flex-direction: row;
+      margin-left: 60px;
+      margin-top: 30px;
   }

@@ -47,15 +47,15 @@ class Post extends Component {
                </div>
                <div className="col-xs-12 col-sm-6 col-lg-7 p-3">
                  <header className="m-2">
-                    <span>{title} | ^ </span>
+                    <span className="bolder">{title} | ^ </span>
                  </header>
                 <div className="col-12">
                    <p>{body}</p>
                 </div>
-                <span className="m-2">{postedDate} | {comments} comments</span>
+                <span className="m-2 bolder">{postedDate} | {comments} comments</span>
                 </div>
                 <div className="col-xs-12 col-sm-2 p-3 text-right">
-                  <span>{author}</span>
+                  <span className="bolder">{author}</span>
                 </div>
             </div>
         );
@@ -74,7 +74,7 @@ class App extends Component {
         return (
           <div className="App">
             <nav className="navbar navbar-light bg-light border-bottom">
-              <span className="navbar-brand mb-0 h1 name">{appTitle}</span>
+              <span className="navbar-brand mb-0 h1 name bolder">{appTitle}</span>
             </nav>
                 <NewPost />
               <Form onSubmit={fields => this.onSubmit(fields)} />

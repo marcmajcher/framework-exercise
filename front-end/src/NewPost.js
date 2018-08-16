@@ -6,7 +6,9 @@ class NewPost extends React.Component {
     
     render() { 
         return (  
-                <div>
+                <div className="flex-container">
+                    <input type="text" className="form-control filter" placeholder="Filter" />
+                    <span className="m-2">Sort By Votes</span>
                   <button className="btn btn-primary right">New Post</button>
                 </div>
         );
