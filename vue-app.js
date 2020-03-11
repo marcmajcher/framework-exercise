@@ -1,10 +1,16 @@
 'use strict';
 
 /* eslint-env browser */
-/* globals Vue */
+/* globals Vue, Vuex */
 
 (() => {
     const postList = [];
+    // Vue.use(Vuex);
+    console.log(Vuex)
+    const mystore = Vuex.Store({});
+
+    console.log(mystore);
+    
 
     fetch('data.json')
         .then(res => res.json())
@@ -20,10 +26,11 @@
                 <div class="mb-post-body">{{post.body}}</div>
             </li>
         `
-        });
+    });
 
     const mbApp = new Vue({ // eslint-disable-line no-unused-vars
         el: '#mb-app',
+        // store,
         data: {
             posts: postList
         }
